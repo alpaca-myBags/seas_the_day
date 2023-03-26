@@ -1,6 +1,11 @@
-document.addEventListener("DOMContentLoaded", console.log("loaded content"));
+document.addEventListener("DOMContentLoaded", async () => {
+  console.log("loaded content");
+  const weatherAPIUrl =
+    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&start_date=2023-03-26&end_date=2023-04-01";
 
-const weatherKey = config.weatherKey;
+  const data = await fetchData(weatherAPIUrl);
+  console.log(data);
+});
 
 const fetchData = async (url) => {
   try {
